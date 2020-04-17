@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+:root {
+    --mainColor: #09BFCC;
+    --secondColor: #ffa372;
+    --whiteColor: #ffffff;
+    --grayColor: #98a6ad;
+}
+
+* {
+    box-sizing: border-box;
+    /* para que mida lo que pongamos en el width y no sume el padding y el borde */
+    margin: 0;
+    padding: 0;
+}
+
+body,
+ul,
+li,
+button,
+a {
+    font-weight: 400;
+    /*especifica el peso o grueso de la letra. Algunos tipos de letra sólo están disponibles en normal (400) y bold. (700) */
+    font-size: 1em;
+    color: var(--grayColor);
+    font-family: 'Rubik', Verdana, sans-serif;
+    text-decoration: none;
+}
+
+body {
+    background-color: #F3F6F8;
+}
+
+hr {
+    max-width: 80%;
+}
+
+h1 {
+    font-size: 1.2em;
+}
+
+section,
+article {
+    margin: 0.5em;
+}
+
+header {
+    background-color: var( --mainColor);
+    /* margin-top: 1em;
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray; 
+    color: black; */
+    color: var(--whiteColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+input {
+    border: 1px solid var( --mainColor);
+    border-radius: 5px;
+    padding: 0 0.5em;
+    margin: 0 0.5em;
+    height: 2em;
+}
+
+input[type="text"] {
+    width: 80%;
+}
+
+
+input:focus {
+    outline: none;
+    border: 1px solid var( --secondColor);
+}
+
+label {
+    display: block;
+    margin-bottom: 1em;
+}
+
+li {
+    list-style: none;
+}
+
+
+/* footer al final de la pagina */
+
+body {
+    position: relative;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 3em;
+    /* El mismo del tañaño del footer */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3em;
+}
+
+
+/* fin footer al final de la pagina */
+
+footer {
+    background-color: var(--secondColor);
+    color: var(--whiteColor);
+    text-align: center;
+    vertical-align: middle;
+    padding: 1em;
+}
+
+main {
+    margin: 1em 4em;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    color: inherit;
+}
+
+.nav-links a {
+    padding: 1.5em 2em;
+}
+
+.nav-links a {
+    color: inherit;
+}
+
+.nav-links a:hover {
+    font-size: 1em;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    /* border-left: 2px solid gray;
+    border-right: 2px solid gray; */
+    transition: ease-in 0.1s;
+}
+
+.logo {
+    max-height: 70px;
+    cursor: pointer;
+    order: 1;
+}
+
+.searchForm {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.searchForm input[type="text"] {
+    font-family: 'FontAwesome';
+}
+
+.namePage {
+    border-top: 2px solid var(--grayColor);
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+    max-width: fit-content;
+    padding: 0.1em 0.8em;
+}
+
+.box {
+    background-color: var(--whiteColor);
+    border-radius: 4px;
+    padding: 1em;
+}
+
+.horizontal {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mainSection {
+    margin: 1em auto;
+    /* centar un contenido */
+    max-width: 90%;
+}
+
+.question {
+    margin: 0.2em;
+    padding: 0.5em 0.5em;
+}
+
+.question select {
+    height: 2em;
+    border-color: var(--mainColor);
+    margin: 0 1em;
+}
+
+.question select:active {
+    float: right;
+    height: 2em;
+    border-color: var(--mainColor);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bordered {
+    border: thin dotted var(--grayColor);
+}
+
+.button {
+    padding: 0.4em 5em;
+    cursor: pointer;
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+    user-select: none;
+    border: none;
+    margin: 1em;
+    box-shadow: 18px 18px 16px -13px rgba(0, 0, 0, 0.75);
+}
+
+.button:hover {
+    background-color: var(--grayColor);
+    transition: 0.1s;
+    box-shadow: none;
+}
+
+.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+   
+}
+
+.verticalEnd {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+@media screen and (max-width: 750px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+    .question label {
+        display: block;
+        margin-bottom: 0.2em;
+    }
+}
