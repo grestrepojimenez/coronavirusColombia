@@ -119,6 +119,10 @@ main {
     margin: 1em 4em;
 }
 
+.big-text {
+    font-size: 3em;
+}
+
 .nav-links {
     display: flex;
     flex-wrap: wrap;

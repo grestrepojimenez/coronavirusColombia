@@ -1,7 +1,9 @@
-<html>
+<html lang="es">
 <head>
+<title>Servicio de encuestas</title>
+  <meta charset="utf-8">
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/peticion.js"></script>
+  <script src="js/index.js"></script>
 </head>
 <body>
   <header class="topnav">
@@ -14,22 +16,12 @@
       <a class="icon" href="#"><span class="fa fa-bars"></span></a>
     </nav>
   </header>
-
   <main>
-    <!-- <div class= "searchForm">
-      <label for="">Buscar encuestas</label>
-      <input type="text" placeholder="&#xf002; ">
-    </div> -->
-
     <h1 class="namePage">Probabilidad de contagio en Colombia</h1>
-
     <article class="box">
       <p>Mediante esta encuesta podras identificar la probabilidad de contagio de SARS-CoV-2 (Coronavirus)</p>
     </article>
-
-    
-    <section class="mainSection horizontal">
-     
+    <section class="mainSection horizontal">     
       <article class="vertical box">
         <form action="">
           <p>Ingresa aqui tus datos:</p>
@@ -43,38 +35,35 @@
                 <label for="">Edad:</label>
                 <input type="number">
               </li>
-
               <li class="question">
-                <label for="">Ciudad:</label>
-                <select name="" id="">
-                  <option value="">Seleccione</option>
-                </select>
+                <label>Departamento: </label>
+                <input list="datalist-ciudades" name="ciudad" />
+                <datalist id="datalist-ciudades"> </datalist>
               </li>
-
               <li class="question">
                 <label for="">Cuantas veces salío usted o algún integrante de su familia el último mes:</label>
-                  <input name="salidas" type="radio"> Ninguno salió <br>
-                 <input name="salidas" type="radio"> 1 a 3 veces  <br>
-                 <input name="salidas" type="radio"> 4 a 10 veces  <br>
+                <input name="salidas" type="radio"> Ninguno salió <br>
+                <input name="salidas" type="radio"> 1 a 3 veces  <br>
+                <input name="salidas" type="radio"> 4 a 10 veces  <br>
                 <input name="salidas" type="radio">  10 o más veces  <br>
               </li>
             </ul>
           </form>
         </article>
-
         <article class="box"> 
-            <p>Las estadisticas en Colombia al dia de hoy:</p>
-            <p>Cantidad de contagiados:</p> <span class="big-text" id="total-country"></span>
-            <p>Hombres contagiados:</p> <span class="big-text" id="men-country"></span>
-            <p>Hombres contagiados:</p> <span class="big-text" id="women-country"></span>
-            <p>Dias desde el primer caso:</p> <span class="big-text" id="days-country"></span>
-            
+          <p>Las estadisticas en Colombia al dia de hoy:</p>
+          <p>Cantidad de contagiados:</p> <span class="big-text" id="total"></span>
+          <p>Hombres contagiados:</p> <span class="big-text" id="hombres"></span>
+          <p>Mujeres contagiadas:</p> <span class="big-text" id="mujeres"></span>
+          <p>Personas mayores de 50 años:</p> <span class="big-text" id="mayores50"></span>
+          <p>Personas menores de 50 años:</p> <span class="big-text" id="menores50"></span>
+          <p>Dias desde el primer caso:</p> <span class="big-text" id="dias"></span>
+          <p>Personas Recuperadas:</p> <span class="big-text" id="recuperados"></span>
+          <p>Muertes:</p> <span class="big-text" id="muertes"></span>
         </article>
-
         <article class="box">
           <p>Resultados con los datos suministrados:</p>
         </article>
-
       </section>
     </main>
   </body>
