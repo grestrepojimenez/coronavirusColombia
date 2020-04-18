@@ -68,7 +68,6 @@ input[type="text"] {
     width: 80%;
 }
 
-
 input:focus {
     outline: none;
     border: 1px solid var( --secondColor);
@@ -119,8 +118,16 @@ main {
     margin: 1em 4em;
 }
 
-.big-text {
+.chart {
+    width: 70vh;
+}
+
+.big-text-3 {
     font-size: 3em;
+}
+
+.big-text-2 {
+    font-size: 2em;
 }
 
 .nav-links {
@@ -237,7 +244,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-   
 }
 
 .verticalEnd {

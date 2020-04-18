@@ -1,9 +1,11 @@
 <html lang="es">
 <head>
-<title>Servicio de encuestas</title>
+<title>Survey service</title>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
   <link rel="stylesheet" href="css/styles.css" />
-  <script src="js/index.js"></script>
+ 
 </head>
 <body>
   <header class="topnav">
@@ -52,19 +54,27 @@
         </article>
         <article class="box"> 
           <p>Las estadisticas en Colombia al dia de hoy:</p>
-          <p>Cantidad de contagiados:</p> <span class="big-text" id="total"></span>
-          <p>Hombres contagiados:</p> <span class="big-text" id="hombres"></span>
-          <p>Mujeres contagiadas:</p> <span class="big-text" id="mujeres"></span>
-          <p>Personas mayores de 50 años:</p> <span class="big-text" id="mayores50"></span>
-          <p>Personas menores de 50 años:</p> <span class="big-text" id="menores50"></span>
-          <p>Dias desde el primer caso:</p> <span class="big-text" id="dias"></span>
-          <p>Personas Recuperadas:</p> <span class="big-text" id="recuperados"></span>
-          <p>Muertes:</p> <span class="big-text" id="muertes"></span>
+          <p>Cantidad de contagiados:</p> <span class="big-text-3" id="total"></span>
+          <p> <i class="fa fa-male big-text-2"></i>  <span class="big-text-3" id="hombres"></span>
+          <i class="fa fa-female big-text-2"></i> <span class="big-text-3" id="mujeres"></span> </p>
+          <!-- <p>Dias desde el primer caso:</p> <span class="big-text-3" id="dias-transcurridos"></span> -->
+          <p>Personas Recuperadas:</p> <span class="big-text-3" id="recuperados"></span>
+          <p>Muertes:</p> <span class="big-text-3" id="muertes"></span>
+          <p>Muertes Menores de 50 años:</p> <span class="big-text-3" id="muertes-menores-50"></span>
         </article>
         <article class="box">
           <p>Resultados con los datos suministrados:</p>
         </article>
+        <article class="box">
+          <p>Curva de contagio</p>
+          <div class="ct-chart ct-perfect-fourth chart"></div>
+        </article>
       </section>
     </main>
+
+
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js" type="text/javascript"></script>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
   </body>
   </html>

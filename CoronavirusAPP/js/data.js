@@ -1,4 +1,4 @@
-[{"id_de_caso":"1","fecha_de_diagn_stico":"6/3/20","ciudad_de_ubicaci_n":"BOGOTA","departamento":"BOGOTÁ D.C.","atenci_n":"Recuperado","edad":"19","sexo":"F","tipo":"Importado","pa_s_de_procedencia":"ITALIA"}
+const dataExport = [{"id_de_caso":"1","fecha_de_diagn_stico":"6/3/20","ciudad_de_ubicaci_n":"BOGOTA","departamento":"BOGOTÁ D.C.","atenci_n":"Recuperado","edad":"19","sexo":"F","tipo":"Importado","pa_s_de_procedencia":"ITALIA"}
 ,{"id_de_caso":"2","fecha_de_diagn_stico":"9/3/20","ciudad_de_ubicaci_n":"BUGA","departamento":"VALLE DEL CAUCA","atenci_n":"Recuperado","edad":"34","sexo":"M","tipo":"Importado","pa_s_de_procedencia":"ESPAÑA"}
 ,{"id_de_caso":"3","fecha_de_diagn_stico":"9/3/20","ciudad_de_ubicaci_n":"MEDELLIN","departamento":"ANTIOQUIA","atenci_n":"Recuperado","edad":"50","sexo":"F","tipo":"Importado","pa_s_de_procedencia":"ESPAÑA"}
 ,{"id_de_caso":"4","fecha_de_diagn_stico":"11/3/20","ciudad_de_ubicaci_n":"MEDELLIN","departamento":"ANTIOQUIA","atenci_n":"Recuperado","edad":"55","sexo":"M","tipo":"Relacionado","pa_s_de_procedencia":"COLOMBIA"}
