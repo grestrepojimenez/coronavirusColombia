@@ -43,7 +43,7 @@
                 <datalist id="datalist-departamentos"> </datalist>
               </li>
               <li class="question">
-                <label for="">Cuantas veces salío usted o algún integrante de su familia el último mes:</label>
+                <label for="salidas">Cuantas veces salío usted o algún integrante de su familia el último mes:</label>
                 <input name="salidas" type="radio" value="ninguna"> Ninguno salió <br>
                 <input name="salidas" type="radio" value="1 a 3"> 1 a 3 veces  <br>
                 <input name="salidas" type="radio" value="4 a 10"> 4 a 10 veces  <br>
@@ -67,6 +67,10 @@
         </article>
         <article class="box">
           <p>Resultados con los datos suministrados:</p>
+          <br>  
+          <p>Su probabilidad de contagio es de:</p>
+          <p class="center"><span class="big-text-10" id="probabilidad">%</span></p>
+          <p id="mensaje"></p>
         </article>
         <article class="box">
           <p>Curva de contagio</p>

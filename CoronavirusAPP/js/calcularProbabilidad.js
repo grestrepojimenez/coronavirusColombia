@@ -1,50 +1,42 @@
 let calcularProbabilidad = function() {
 
+    /*Creacion y llenado de objeto persona mediante recorrido de form inputs */
     let persona = {}
     const myInputElements = document.querySelectorAll('#formularioProbabilidad input')
     Array.from(myInputElements).forEach(elm => {
-        persona[elm.name] = elm.value
+        if (elm.type == 'radio') {
+            if (elm.checked) persona[elm.name] = elm.value
+        } else {
+            persona[elm.name] = elm.value
+        }
     })
 
-}
 
-function verificarProbabilidad(persona) {
 
-    let contagio = 0;
-    switch (persona.ciudad) {
-        case 'Roma':
-        case 'Madrid':
-            contagio += 90;
-            break;
-        case 'Medellín':
-        case 'Bogotá':
-            contagio += 65;
-            break;
+    let contagio = 0
+    switch (persona.salidas) {
+        case 'ninguna':
+            break
+        case '1 a 3':
+            contagio += 30
+            break
+        case '4 a 10':
+            contagio += 50
+            break
+        case 'mas de 10':
+            contagio += 80
+            break
         default:
-            contagio += 50;
-            break;
+            break
+
     }
 
-    // if(persona.enCuarentena){ contagio -=30 } else{ contagio *=2 }
-    contagio = (persona.enCuarentena) ? contagio -= 30 : contagio *= 2 // Forma "corta" pero menos legible  de hacer un if else sería  (No la recomiendo)
+    if (contagio <= 0) contagio = 0
+    if (contagio > 100) contagio = 100
 
-    for (i = 0; i < persona.medidaHigiene.length; + i++) {
-        switch (persona.medidaHigiene[i]) {
-            case 'lavado de manos':
-                contagio -= 20
-                break;
-            case 'cambio de tapabocas':
-                contagio -= 15
-                break;
-            case 'Limpieza de domicilios':
-                contagio -= 5
-                break;
-            default:
-                break;
-        }
-    }
+    let mensaje = `Señor ${persona.nombre} siga teninedo en cuenta las medidas propustas por lar organizaciones de salud respecto a su aislamiento`
 
-    if (contagio < 0) contagio = 0
-    if (contagio > 0) contagio = 100
-    return contagio;
+    document.getElementById('probabilidad').innerText = contagio + '%'
+    document.getElementById('mensaje').append(mensaje)
+
 }
