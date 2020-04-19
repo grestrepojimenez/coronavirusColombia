@@ -41,7 +41,7 @@ let mostrarDatos = function(datosCoronavirus) {
         /* Quitar duplicados */
     departamentos = departamentos.filter((item, indice) => departamentos.indexOf(item) === indice);
     // departamentos = [...new Set(departamentos)] // Otra forma de quitar duplicados
-    crearDataList(departamentos, 'datalist-ciudades')
+    crearDataList(departamentos, 'datalist-departamentos')
 
     paises = ['argentina', 'brazil', 'chile', 'china', 'ecuador', 'italy', 'korea-south', 'mexico', 'spain', 'sweden']
     crearDataList(paises, 'datalist-paises')

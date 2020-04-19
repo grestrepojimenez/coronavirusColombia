@@ -25,32 +25,32 @@
     </article>
     <section class="mainSection horizontal">     
       <article class="vertical box">
-        <form action="">
+        <form action="" id="formularioProbabilidad">
           <p>Ingresa aqui tus datos:</p>
           <ul class="center">  
             <ul class="">
               <li class="question">
-                <label for="">Nombre Completo:</label>
-                <input type="text">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" name="nombre">
               </li>
               <li class="question">
-                <label for="">Edad:</label>
-                <input type="number">
+                <label for="edad">Edad:</label>
+                <input type="number" name="edad">
               </li>
               <li class="question">
                 <label>Departamento: </label>
-                <input list="datalist-ciudades" name="ciudad"  type="datalist"/>
-                <datalist id="datalist-ciudades"> </datalist>
+                <input list="datalist-departamentos" name="departamento"  type="datalist"/>
+                <datalist id="datalist-departamentos"> </datalist>
               </li>
               <li class="question">
                 <label for="">Cuantas veces salío usted o algún integrante de su familia el último mes:</label>
-                <input name="salidas" type="radio"> Ninguno salió <br>
-                <input name="salidas" type="radio"> 1 a 3 veces  <br>
-                <input name="salidas" type="radio"> 4 a 10 veces  <br>
-                <input name="salidas" type="radio">  10 o más veces  <br>
+                <input name="salidas" type="radio" value="ninguna"> Ninguno salió <br>
+                <input name="salidas" type="radio" value="1 a 3"> 1 a 3 veces  <br>
+                <input name="salidas" type="radio" value="4 a 10"> 4 a 10 veces  <br>
+                <input name="salidas" type="radio" value="mas de 10">  10 o más veces  <br>
               </li>
               <div class="content-right">
-              <a class="button">Calcular</a>
+              <a class="button" onclick="calcularProbabilidad()">Calcular</a>
               </div>
             </ul>
           </form>
