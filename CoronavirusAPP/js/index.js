@@ -120,3 +120,13 @@ let compararGraficas = function(country) {
 }
 
 // mostrarDatos(datosCoronavirus)
+
+let agregarEventos = function() {
+
+    let comparador = document.querySelector('input[name="pais-comparacion"]')
+    comparador.addEventListener('change', () => compararGraficas(comparador.value))
+    comparador.addEventListener('click', () => compararGraficas(comparador.value = ''))
+
+}
+
+agregarEventos()

@@ -26,9 +26,8 @@
     <section class="mainSection horizontal">     
       <article class="vertical box">
         <form action="" id="formularioProbabilidad">
-          <p>Ingresa aqui tus datos:</p>
-          <ul class="center">  
-            <ul class="">
+          <h4 class="header-tiitle">Ingresa aqui tus datos:</h4>
+          <ul>  
               <li class="question">
                 <label for="nombre">Nombre Completo:</label>
                 <input type="text" name="nombre">
@@ -55,36 +54,33 @@
             </ul>
           </form>
         </article>
-        <article class="box"> 
-          <p>Las estadisticas en Colombia al dia de hoy:</p>
+                <article class="box" id="results">
+                  <h4 class="header-tiitle">Resultados con los datos suministrados:</h4>
+                  <br>
+                  <p>Su probabilidad de contagio es de:</p>
+                  <p class="center"><span class="big-text-6" id="probabilidad">%</span></p>
+                  <p id="mensaje"></p>
+                </article>
+        <article class="box center margin-bottom"  id="estadisticas">
+          <h4 class="header-tiitle">Las estadisticas en Colombia al dia de hoy:</h4>
           <p>Cantidad de contagiados:</p> <span class="big-text-3" id="total"></span>
+          <p>Genero:</p>
           <p> <i class="fa fa-male big-text-2"></i>  <span class="big-text-3" id="hombres"></span>
-          <i class="fa fa-female big-text-2"></i> <span class="big-text-3" id="mujeres"></span> </p>
-          <!-- <p>Dias desde el primer caso:</p> <span class="big-text-3" id="dias-transcurridos"></span> -->
+          <i class="fa fa-female big-text-2"></i> <span class="big-text-3" id="mujeres"></span> </p><span class="big-text-3"></span>
           <p>Personas Recuperadas:</p> <span class="big-text-3" id="recuperados"></span>
           <p>Muertes:</p> <span class="big-text-3" id="muertes"></span>
           <p>Muertes Menores de 50 años:</p> <span class="big-text-3" id="muertes-menores-50"></span>
         </article>
         <article class="box">
-          <p>Resultados con los datos suministrados:</p>
-          <br>  
-          <p>Su probabilidad de contagio es de:</p>
-          <p class="center"><span class="big-text-10" id="probabilidad">%</span></p>
-          <p id="mensaje"></p>
-        </article>
-        <article class="box">
-          <p>Curva de contagio</p>
+          <h4 class="header-tiitle" >Curva de contagio</h4>
           <div class="ct-chart ct-perfect-fourth chart"></div>
           <p class="content-right">
             <small class="ct-series-a"> Casos en Colombia</small>
             <small class="ct-series-b"> Pais comparado</small>
           </p>
           <label>Comparar curva con: </label>
-          <input list="datalist-paises" type="datalist" name="pais-comparacion" onchange="compararGraficas(this.value)" />
+          <input list="datalist-paises" type="datalist" name="pais-comparacion" />
           <datalist id="datalist-paises"> </datalist>
-          
-           <!-- Solo comparar los mismos días <input type="checkbox" onchange=""> -->
-          </li>
         </article>
       </section>
     </main>

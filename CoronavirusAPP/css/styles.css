@@ -182,8 +182,16 @@ main {
     font-size: 3em;
 }
 
-.big-text-10 {
-    font-size: 10em;
+.big-text-6 {
+    font-size: 6em;
+}
+
+.header-tiitle {
+    margin-bottom: 2em;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    font-size: 14px;
+    font-weight: 700;
 }
 
 .nav-links {
@@ -252,6 +260,10 @@ main {
     max-width: 90%;
 }
 
+.margin-bottom span {
+    margin-bottom: 0.3em;
+}
+
 .question {
     margin: 0.2em;
     padding: 0.5em 0.5em;
@@ -271,7 +283,7 @@ main {
 
 .center {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
@@ -296,6 +308,15 @@ main {
     box-shadow: none;
 }
 
+#results {
+    display: none;
+    width: 20vw;
+}
+
+#estadisticas {
+    flex-shrink: 30vw;
+}
+
 .vertical {
     display: flex;
     flex-direction: column;
@@ -312,7 +333,7 @@ main {
     display: none;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1000px) {
     .topnav a:not(:first-child) {
         display: none;
     }
@@ -323,5 +344,14 @@ main {
     .question label {
         display: block;
         margin-bottom: 0.2em;
+    }
+
+    .box {
+        justify-self: stretch;
+    }
+    #results {
+        justify-self: stretch;
+        display: none;
+        width: 60vw;
     }
 }

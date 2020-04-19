@@ -11,8 +11,6 @@ let calcularProbabilidad = function() {
         }
     })
 
-
-
     let contagio = 0
     switch (persona.salidas) {
         case 'ninguna':
@@ -34,9 +32,10 @@ let calcularProbabilidad = function() {
     if (contagio <= 0) contagio = 0
     if (contagio > 100) contagio = 100
 
-    let mensaje = `Señor ${persona.nombre} siga teninedo en cuenta las medidas propustas por lar organizaciones de salud respecto a su aislamiento`
+    let mensaje = `Señor ${persona.nombre} siga teninedo en cuenta las medidas propustas por las organizaciones de salud respecto a su aislamiento`
 
     document.getElementById('probabilidad').innerText = contagio + '%'
-    document.getElementById('mensaje').append(mensaje)
+    document.getElementById('mensaje').innerText= mensaje
+    document.querySelector('#results').style.display = "block"
 
 }
