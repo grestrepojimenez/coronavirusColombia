@@ -56,12 +56,43 @@ header {
     height: 80px;
 }
 
-input {
+[type=text],
+[type=datalist],
+[type=number] {
     border: 1px solid var( --mainColor);
     border-radius: 5px;
     padding: 0 0.5em;
     margin: 0 0.5em;
     height: 2em;
+}
+
+[type=radio],
+[type=checkbox] {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: solid 1px var(--grayColor);
+    margin-right: 8px;
+    position: relative;
+}
+
+[type=radio] {
+    border-radius: 50%;
+}
+
+[type=radio]:checked::before {
+    border-radius: 50%;
+}
+
+[type=radio]:checked::before,
+[type=checkbox]:checked::before {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: var(--mainColor);
+    position: absolute;
+    top: 2px;
+    left: 2px;
 }
 
 input[type="text"] {
@@ -118,8 +149,29 @@ main {
     margin: 1em 4em;
 }
 
+.content-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .chart {
     width: 70vh;
+}
+
+.ct-series-a,
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+    stroke: var(--mainColor);
+    color: var(--mainColor);
+    margin: 0 1em;
+}
+
+.ct-series-b,
+.ct-series-b .ct-line,
+.ct-series-b .ct-point {
+    stroke: var(--secondColor);
+    color: var(--secondColor);
+    margin: 0 1em;
 }
 
 .big-text-3 {

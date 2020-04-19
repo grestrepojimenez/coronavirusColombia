@@ -1,60 +1,58 @@
-let dataCoronavirus = dataExport
+let datosCoronavirus = datosExportados
 
-// fetch(
-//         'https://www.datos.gov.co/resource/gt2j-8ykr.json?$limit=5000', {
-//             method: 'GET',
-//         })
-//     .then((response) => {
-//         return response.json();
-//     })
-//     .then((myJson) => {
-//         data = myJson;
-//         showData(myJson);
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
+fetch(
+        'https://www.datos.gov.co/resource/gt2j-8ykr.json?$limit=5000', {
+            method: 'GET',
+        })
+    .then((respuesta) => {
+        return respuesta.json();
+    })
+    .then((myJson) => {
+        datosCoronavirus = myJson;
+        mostrarDatos(myJson);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 
+let crearDataList = function(arrayList, where) {
+    /* Poner los elementos filtrados en un datoslist */
+    let contenedorDataList = document.getElementById(where)
+    arrayList.forEach((elm) => {
+        option = document.createElement('option');
+        option.value = elm;
+        contenedorDataList.append(option);
+    });
+}
 
-
-let showData = function(dataCoronavirus) {
+let mostrarDatos = function(datosCoronavirus) {
 
     /* Tomar datos y ponerlos en html */
-    document.getElementById('total').append(dataCoronavirus.length);
-    document.getElementById('hombres').append(dataCoronavirus.filter(({ sexo }) => sexo == 'M').length);
-    document.getElementById('mujeres').append(dataCoronavirus.filter(({ sexo }) => sexo == 'F').length);
-    document.getElementById('recuperados').append(dataCoronavirus.filter(({ atenci_n }) => atenci_n == 'Recuperado').length);
-    document.getElementById('muertes').append(dataCoronavirus.filter(({ atenci_n }) => atenci_n == 'Fallecido').length);
-    document.getElementById('muertes-menores-50').append(dataCoronavirus.filter(({ atenci_n, edad }) => atenci_n == 'Fallecido' && edad < 50).length);
-
+    document.getElementById('total').append(datosCoronavirus.length);
+    document.getElementById('hombres').append(datosCoronavirus.filter(({ sexo }) => sexo == 'M').length);
+    document.getElementById('mujeres').append(datosCoronavirus.filter(({ sexo }) => sexo == 'F').length);
+    document.getElementById('recuperados').append(datosCoronavirus.filter(({ atenci_n }) => atenci_n == 'Recuperado').length);
+    document.getElementById('muertes').append(datosCoronavirus.filter(({ atenci_n }) => atenci_n == 'Fallecido').length);
+    document.getElementById('muertes-menores-50').append(datosCoronavirus.filter(({ atenci_n, edad }) => atenci_n == 'Fallecido' && edad < 50).length);
 
 
     /* Crear un nuevo objeto solo con los departamentos */
-    departamentos = dataCoronavirus.map(({ departamento }) => departamento)
-
-    /* Quitar duplicados */
+    departamentos = datosCoronavirus.map(({ departamento }) => departamento)
+        /* Quitar duplicados */
     departamentos = departamentos.filter((item, indice) => departamentos.indexOf(item) === indice);
     // departamentos = [...new Set(departamentos)] // Otra forma de quitar duplicados
+    crearDataList(departamentos, 'datalist-ciudades')
 
-    /* Poner los elementos filtrados en un datalist */
-    let datalistCiudades = document.getElementById('datalist-ciudades')
-    departamentos.forEach((departamento) => {
-        option = document.createElement('option');
-        option.value = departamento;
-        datalistCiudades.append(option);
-    });
+    paises = ['argentina', 'brazil', 'chile', 'china', 'ecuador', 'italy', 'korea-south', 'mexico', 'spain', 'sweden']
+    crearDataList(paises, 'datalist-paises')
 
-
-    mayores50Años = dataCoronavirus.filter(({ edad }) => edad >= 50).length;
-
-    drawGraphs(dataCoronavirus)
+    dibujarGraficas(datosCoronavirus)
 }
 
-let drawGraphs = function(dataCoronavirus) {
-
+let dibujarGraficas = function(datosCoronavirus, newSet = []) {
 
     /* Contagiados por dia */
-    fechasContagio = dataCoronavirus.map(({ fecha_de_diagn_stico }) => fecha_de_diagn_stico)
+    fechasContagio = datosCoronavirus.map(({ fecha_de_diagn_stico }) => fecha_de_diagn_stico)
 
     let indice = 0,
         dia = 0,
@@ -73,24 +71,22 @@ let drawGraphs = function(dataCoronavirus) {
         indice++;
     });
 
-    /*dias transcurridos */
-    let fechaIni = new Date('03/09/2020').getTime();
-    let fechaFin = Date.now();
-    dias = parseInt((fechaFin - fechaIni) / (1000 * 60 * 60 * 24)) //mlisegundos* segundos* minutos* horas* días
     dias = [...Array(aumentoXdia.length).keys()] // genera numeros del 1 al numero de dias.
 
-
     /* Creación  de grafica */
+    newSet = newSet.slice(0, aumentoXdia.length)
 
-    aumentoXdia = aumentoXdia.filter((elm, index) => index % 3 == 0) // si quisiera reducir la resolucion de la grafica
-    dias = dias.filter((elm, index) => index % 3 == 0) // si quisiera reducir la resolucion de la grafica
+    /* Reducir resolucion de grafica */
+    newSet = newSet.filter((elm, index) => index % 3 == 0)
+    aumentoXdia = aumentoXdia.filter((elm, index) => index % 3 == 0)
+    dias = dias.filter((elm, index) => index % 3 == 0)
 
-    let chart = new Chartist.Line('.ct-chart', {
+
+    let datos = [aumentoXdia, newSet]
+
+    var chart = new Chartist.Line('.ct-chart', {
         labels: dias,
-        series: [
-            // [12, 9, 7, 8, 5],
-            aumentoXdia
-        ]
+        series: datos
     }, {
         fullWidth: true,
         chartPadding: {
@@ -100,7 +96,27 @@ let drawGraphs = function(dataCoronavirus) {
     });
 
 
-    
 }
 
-showData(dataCoronavirus)
+let compararGraficas = function(country) {
+
+    if (country !== '') {
+        fetch("https://api.covid19api.com/country/" + country + "/status/confirmed?from=2020-01-01T00:00:00Z&to=2020-04-18T00:00:00Z", {
+                "method": "GET",
+            })
+            .then(respuesta => {
+                return respuesta.json();
+            })
+            .then((datosComparacion) => {
+                reportes = datosComparacion.filter((elm) => elm.Cases > 1).map((elm) => { return { day: elm.Date, total: elm.Cases } })
+                diaCero = reportes[0].day;
+                reportes = reportes.map((elm) => elm.total)
+                dibujarGraficas(datosCoronavirus, reportes)
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+}
+
+// mostrarDatos(datosCoronavirus)

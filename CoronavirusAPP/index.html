@@ -28,7 +28,7 @@
         <form action="">
           <p>Ingresa aqui tus datos:</p>
           <ul class="center">  
-            <ul class="bordered">
+            <ul class="">
               <li class="question">
                 <label for="">Nombre Completo:</label>
                 <input type="text">
@@ -39,7 +39,7 @@
               </li>
               <li class="question">
                 <label>Departamento: </label>
-                <input list="datalist-ciudades" name="ciudad" />
+                <input list="datalist-ciudades" name="ciudad"  type="datalist"/>
                 <datalist id="datalist-ciudades"> </datalist>
               </li>
               <li class="question">
@@ -49,6 +49,9 @@
                 <input name="salidas" type="radio"> 4 a 10 veces  <br>
                 <input name="salidas" type="radio">  10 o más veces  <br>
               </li>
+              <div class="content-right">
+              <a class="button">Calcular</a>
+              </div>
             </ul>
           </form>
         </article>
@@ -68,6 +71,16 @@
         <article class="box">
           <p>Curva de contagio</p>
           <div class="ct-chart ct-perfect-fourth chart"></div>
+          <p class="content-right">
+            <small class="ct-series-a"> Casos en Colombia</small>
+            <small class="ct-series-b"> Pais comparado</small>
+          </p>
+          <label>Comparar curva con: </label>
+          <input list="datalist-paises" type="datalist" name="pais-comparacion" onchange="compararGraficas(this.value)" />
+          <datalist id="datalist-paises"> </datalist>
+          
+           <!-- Solo comparar los mismos días <input type="checkbox" onchange=""> -->
+          </li>
         </article>
       </section>
     </main>
@@ -76,5 +89,6 @@
     <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js" type="text/javascript"></script>
     <script src="js/data.js"></script>
     <script src="js/index.js"></script>
+    <script src="js/calcularProbabilidad.js"></script>
   </body>
   </html>

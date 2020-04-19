@@ -1,0 +1,4 @@
+let calcularProbabilidad = function (params) {
+    
+    
+}
